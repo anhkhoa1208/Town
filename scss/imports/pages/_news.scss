@@ -1,0 +1,135 @@
+.sliders {
+    img {
+        height: 44vh;
+        width: 100%;
+    }
+}
+.shin__logo {
+    height: 44vh;
+    z-index: 10;
+    @include md {
+        height: 25vh;
+    }
+    @include xs {
+        height: 40vh;
+    }
+}
+.news {
+    margin-top: -500px; 
+    
+        h2 {
+            @include text (26px, EB, $lh-text, $white-cl, uppercase);
+            padding-bottom: 100px;
+            position: relative;
+            &::before{
+                content: "";
+                height: 1px;
+                width: 100%;
+                background: $white_bg-cl;
+                top: 100px;
+                position: absolute;
+            }
+        }
+        
+        .news__list {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            cursor: pointer;
+            &-item {
+                .img {
+                    height: 200px;
+                    overflow: hidden;
+                    position: relative;
+                    cursor: pointer;
+                    img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    object-fit: cover;
+                    @include transform(translate(-50%,-50%) scale(1));
+                    @include transition($t);
+                    }       
+                }
+                .text {
+                    padding: 20px;
+                    h4 {
+                        padding: 20px 0;
+                        @include text(13px, AH, 2, $black-cl, uppercase);
+                    }
+                    .des {
+                            padding-top: 20px;
+                            @include text(12px, $font-main, 2, $black-cl, none); 
+                    }
+                    .wrap__btn {
+                        display: flex;
+                        align-items: center;
+                        padding-top: 20px;
+                        cursor: pointer;
+                        p {
+                            color: $black-cl;
+                            // padding-top: 5px;
+                            padding-left: 20px;
+                            @include text(14px, AH, 2, $black-cl, uppercase);
+                        }
+                    }
+                }
+                &:hover {
+                    background: $yellow-cl;
+                    @include transition($t);
+                    .img {
+                        img{
+                            @include transform(translate(-50%,-50%) scale(1.2));
+                            @include transition(1s);
+                        }
+                    }
+                }
+            }
+            
+        }
+        .active {
+            display: grid;
+        }
+        .news__page {
+            .number{
+                display: flex;
+                justify-content: center;
+                margin: 40px 0;
+                li {
+                    padding: 10px 20px;
+                    margin-right: 20px;
+                    cursor: pointer;
+                }
+                .active {
+                    background-color: #ddd;
+                }
+                
+            }
+        }
+        @include xs {
+            .news__list {
+                display: none;
+                grid-template-columns: repeat(1, 1fr) ;
+                // padding: 0 30px 30px 30px;
+                &-item {
+                    .img {
+                        height: 300px;
+                    }
+                    .text {
+                        padding: 0 20px;
+                        .des {
+                            padding-top: 0;
+                        }
+                    }
+                }
+            }
+            .active {
+                display: grid;
+                position: relative;
+            }
+        }
+    }
+   
+

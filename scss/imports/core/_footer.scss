@@ -1,0 +1,204 @@
+// css footer
+.footer__main {
+    height: 1000px;
+    margin-top: -450px;
+    background: $blue-bg-cl;
+    z-index: 3;
+    color: $white-cl;
+    .container {
+        position: relative;
+        height: 100%;
+        .info {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            top: 500px;
+            width: 97%;
+            img {
+                width: 80px;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                background: #b49045;
+                height: 2px;
+                width: 45%;
+                top: 15%;
+                left: 0;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                background: #b49045;
+                height: 2px;
+                width: 45%;
+                top:15%;
+                right: 0;
+            }
+            &__line{
+                margin: 30px 0;
+                text-align: center;
+                line-height: 2;
+                text-transform: uppercase;
+            }
+            &__backToTop {
+                position: absolute;
+                transform: rotate(90deg);
+                right: -48px;
+                bottom: -100px;
+                color: #b49045;
+                cursor: pointer;
+                // pointer-events: none;
+                @include transition($t);
+                &:before {
+                    content: "";
+                    width: 2px;
+                    height: 100px;
+                    background: #b49045;
+                    position: absolute;
+                    top: -45px;
+                    right: 200px;
+                    transform: rotate(90deg);
+                    @include transition($t);
+                }
+                &:hover:before{
+                    right: 230px;
+                    @include transition($t);
+                }
+                .active {
+                    pointer-events: auto;
+                    @include transition($t);
+                }
+            }
+        }
+    }
+    @include xs {
+        .container {
+            // margin-top: 100px ;
+            width: 90%;
+            .info {
+                width: 95%;
+                &:before {
+                    width: 35%;
+                    left: -10px;
+                }
+                &:after {
+                    width: 35%;
+                    right: -10px;
+                }
+            }
+        
+            &_backToTop {
+                right: -55px;
+                &:before{
+                    height: 100px;
+                    right: 160px;
+                    top: -50px;
+                }
+            }
+        }
+    }
+}
+
+.footer__about {
+    height: 600px;
+    background: $blue-bg-cl;
+    z-index: 3;
+    color: $white-cl;
+    .container{
+    position: relative;
+    height: 100%;
+    .info{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        bottom: 300px;
+        width: 97%;
+        img{
+            width: 80px;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            background: #b49045;
+            height: 2px;
+            width: 45%;
+            top:15%;
+            left: 0;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            background: #b49045;
+            height: 2px;
+            width: 45%;
+            top:15%;
+            right: 0;
+        }
+        &__line{
+            margin: 30px 0;
+            text-align: center;
+            line-height: 2;
+            text-transform: uppercase;
+        }
+        &__backToTop{
+            position: absolute;
+            transform: rotate(90deg);
+            right: -48px;
+            bottom: -100px;
+            color:#b49045 ;
+            cursor: pointer;
+            transition: 0.4s;
+            &:before{
+                content: "";
+                width: 2px;
+                background: #b49045;
+                height: 100px;
+                position: absolute;
+                top: -45px;
+                right: 200px;
+                transform: rotate(90deg);
+                transition: 0.4s; 
+            }
+            &:hover::before{
+                right: 230px;
+                transition: 0.4s;
+            }
+        }
+    }
+    }
+    @include xs {
+    .container {
+        // margin-top: 100px;
+        width: 90%;
+        .info{
+            width: 95%;
+            bottom: 290px;
+            &:before {
+                width: 35%;
+                left: -10px;
+            }
+            &:after{
+                width: 35%;
+                right: -10px;
+            }
+            &__line{
+                font-size: 15px;
+            }
+            &_backToTop {
+                right: -55px;
+                &:before{
+                    height: 100px;
+                    right: 160px;
+                    top: -50px;
+                }
+            }
+        }
+    }
+}
+
+}

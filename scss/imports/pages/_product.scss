@@ -1,0 +1,203 @@
+.sliders {
+    img {
+        height: 44vh;
+        width: 100%;
+    }
+}
+.shin__logo {
+    .slogan {
+        position: absolute;
+        right: 100px;
+        top: 2%;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        p {
+            @include text (26px, EB, 2, $white-cl, uppercase);
+            width: 45%;
+        }
+    }
+   
+    @include xs {
+        .slogan {
+            display: flex;
+            justify-content: center;
+            right: 0;
+            top:1%;
+            text-align: center;
+            p{
+                width: 90%;
+            }
+        }
+    }
+}
+
+.product {
+    margin-top: -300px;
+    margin-bottom: 50px;
+    &__list {
+        position: relative;
+        padding: 50px 0;
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            .left {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                .number {
+                    p {
+                        @include text (90px, eb, 2, $yellow-cl, uppercase);
+                    }
+                }
+                .text {
+                    margin-left: 20px;
+                    h2 {
+                        @include text (16px, eb, 2, $black-cl, uppercase);
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        
+                        @include text (13px, $font-main, $lh-text, $black-cl, none);
+                    }
+                }
+            }
+            .right {
+                a {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-top: 90px;
+                    img {
+                        margin: 0 10px;
+                        width: 20px;
+                        position: relative;
+                        @include transition($t);
+                        right: 0;
+                    }
+                    p {
+                        @include text (16px, eb, 2, $black-cl, uppercase);
+                        position: relative;
+                    }
+                    &:hover {
+                        img {
+                            right: -5px;
+                            @include transition($t);
+                        }
+                    }
+                }
+            }
+        }
+        &-all {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:30px;
+            position: relative;
+            .product__item {
+                .img {
+                    height: 350px;
+                    overflow: hidden;
+                    position: relative;
+                    cursor: pointer;
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                        @include transform(translate(-50%,-50%) scale(1));
+                        @include transition(1s);
+                        &:hover {
+                            @include transform(translate(-50%,-50%) scale(1.2));
+                            @include transition(1s);
+                        }
+                    }
+                }
+                .text {
+                    h3 {
+                        @include text (20px, ES, 2, $black-cl, none);  
+                        padding: 10px 0;
+                    }
+                    p {
+                        @include text (16px, ES, 2, $gray-cl, uppercase);  
+                    }
+                    .wrap__btn {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        p {
+                            @include text (16px, AH, 2, $black-cl, uppercase); 
+                        }
+                        img {
+                            margin: 0 10px 0 0;
+                            width: 20px;
+                            right: 0;
+                            position: relative;
+                        }
+                        &:hover {
+                            img {
+                                @include transition($t);
+                                right: -5px;
+                            }
+                        }
+                    }
+                }
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                height: 80%;
+                width: 2px;
+                background: #d7d7d7;
+                top: 0;
+                left: calc(100%/3.05);
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                height: 80%;
+                width: 2px;
+                background: #d7d7d7;
+                top: 0;
+                right: calc(100%/3.05);
+            }
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #d7d7d7;
+            bottom: -35px;
+        }
+    }
+    .product__list:last-child {
+            &::before {
+                display: none;
+            }
+    }
+    @include xs {
+        &__list{
+           &-all {
+            grid-template-columns: repeat(1,1fr);
+            .product__item:nth-child(2),
+            .product__item:nth-child(3) {
+                display: none;
+            }
+            .product__item {
+                .img {
+                    height: 400px;
+                }
+            }
+            &:before {
+                display: none;
+            }
+            &:after {
+                display: none;
+            }
+           }
+        }
+    }
+}
